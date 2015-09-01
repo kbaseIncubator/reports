@@ -1,0 +1,116 @@
+%
+%
+%If you would like a word document version of the case study, email mchester@es.net.
+%
+%Last revised: March 6, 2015 by Mary Hester.
+%
+%Note: document should be built using  XeLaTeX.
+
+\documentclass[10pt,a4paper]{report}
+
+\usepackage{geometry}       
+\usepackage{amsfonts}
+\usepackage{kpfonts}
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{fullpage}
+\usepackage{caption}
+\usepackage{tabulary}
+
+\usepackage{array}
+\usepackage{xcolor,colortbl}
+\usepackage{booktabs}
+
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+
+%%Reset font for Helvetic. Needs to be built using XeLatex
+\usepackage{fontspec,xltxtra,xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[Mapping=tex-text]{Helvetica}
+\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Helvetica}
+\setmonofont[Scale=MatchLowercase]{Helvetica}
+
+%renaming default "Chapter" headings
+\renewcommand{\chaptername}{Case Study}
+
+\begin{document}
+
+\chapter{KBase - DOE Systems Biology KnowledgeBase}
+
+\section{Background} 
+%From a networking and data perspective, describe the science research and/or details of your facility (if applicable), or the focus of your current projects. (1-2 paragraphs total.)
+The Department of Energy Systems Biology Knowledgebase (KBase) is a software and data platform designed to meet the grand challenge of systems biology: predicting and designing biological function. KBase integrates data, tools, and their associated interfaces into one unified, scalable environment, so users do not need to access them from numerous sources or learn multiple systems in order to perform sophisticated systems biology analyses. Users can perform large-scale analyses and combine multiple lines of evidence to model plant and microbial physiology and community dynamics.  KBase is the first large-scale bioinformatics system that enables users to upload their own data, analyze it (along with collaborator and public data), build increasingly realistic models, and share and publish their workflows and conclusions. KBase aims to provide a knowledgebase: an integrated environment where knowledge and insights are created and multiplied.
+
+Underlying the KBase platform is a service-oriented architecture that runs across a distributed set of resources located at Argonne National Lab and Lawrence Berkeley National Lab.  The two sites mirror one another both in data and services.  KBase takes advantages of existing connectivity to ESnet at both sites.  KBase uses its connectivity to 1) replicate data between the two sites 2) enable users to upload/download data into the KBase system.
+
+\section{Network and Data Architecture}
+%Please describe the network architecture for your facility and/or laboratory and/or campus.  It is critical for us to know how your data moves from your location on campus, to the campus network, and then to the broader Internet.  Details should include local infrastructure configuration, bandwidth speed(s), hardware, etc. Any specific items of interest in regard to high-performance data transfers, network architecture (e.g., a Science DMZ http://fasterdata.es.net/science-dmz/) or other site, campus, or facility networking issues? Please include network diagrams if possible.
+
+KBase is connected to ESnet differently at the two main sites (Argonne and Berkeley).
+
+At Berkeley, KBase is housed with NERSC.  This is currently at the Oakland Scientific Facility but will move in late 2015 to the new Computational Research and Theory (CRT) Facility which has just completed construction.  Currently a dedicated KBase router (Juniper QFX3500S) is connected via 10Gb to a NERSC owned router (XX) which is connected to ESnet via a 100Gb link.  The connection through the NERSC router is VLAN based (i.e. the NERSC router doesn't perform any Layer 3 routing).  KBase servers are connected to the Juniper via a Mellanox 40Gb Ethernet Switch.  The Juniper router has minimal ACLs defined.  
+
+At Argonne, KBase is...
+
+
+
+%If you don’t have this information, please contact your IT or network support department/organization.  If you would like ESnet to have a discussion about this with your IT support or networking people, email engage@es.net.
+
+\section{Collaborators}
+%Please list facilities, significant users/collaborators, and/or virtual organizations (VOs) that are critical to your work.  A rough estimate on the breadth and depth of the collaboration space (i.e., number of users, number of participating facilities, etc.) is also useful.  Please list geographical endpoints for collaborators.
+
+The KBase project has members from Four National Labs and a number of Universities.   They include:
+\begin{itemize}
+\item Argonne National Lab
+\item Lawrence Berkeley National Lab
+\item Oak Ridge National Lab
+\item Brookhaven National Lab
+\item Cold Spring Harbor Lab
+\item Hope College
+\end{itemize}
+
+Users of the system span the nation and the globe.  
+
+An important partner facility is the Joint Genome Institute (JGI) (see section XX).  User can use the JGI portal to request data sets to be directly uploaded from JGI into KBase.  JGI resources are located in the NERSC computing facility which the Berkeley resources are also housed.
+
+\section{Instruments and Facilities}
+%In terms of the present (within 0-2 years), next 2-5 years (beyond the current fiscal year’s budget cycle) and future (beyond 5 years), please describe the network, compute, instruments, and storage resources used for your work. If you are a facility, please describe the resources you make available to your users, or that users deploy at your facility.
+\begin{itemize}
+\item Present
+\item Next 2-5 years
+\item Beyond 5 years
+\end{itemize}
+
+\section{Process of Science}
+%Please describe the way in which the instruments and facilities (as discussed above) are used for knowledge discovery.  Examples might include workflows, data analysis, data reduction, integration of experimental data with simulation data, and so on. The goal is to capture the way in which the instruments and facilities are used (and will be used in the foreseeable future), so we can understand the potential impact of these processes on the network.  If you are a facility, please describe the common use models of your users, with a data-centric or network-centric focus. Please describe this process in terms of:
+\begin{itemize}
+\item Present
+\item Next 2-5 years
+\item Beyond 5 years
+\end{itemize}
+
+\section{Remote Science Activities}
+%Please include a description of any remote instruments or collaborations, and describe how this work does or may have an impact on your network traffic—any connections to major scientific instruments outside of your local instruments and facilities (i.e., supercomputers, particle accelerators, tokamaks, genome sequencers, satellite data…)?
+
+Since KBase is a web-based science platform, all of its users are remote.  Users primarily interact with the system through a "Narrative Interface".  This interface is based on the popular IPython/Jupyter platform with significant customizations done by KBase.  User can upload and download data into the system through this intefaces.
+
+\section{Software Infrastructure}
+%Describe the software used in daily activities of the scientific process.  Please include tools that are used to locally or remotely manage data resources, facilitate the transfer of data sets from or to remote collaborators, or process the raw results into final and intermediate formats.
+\begin{itemize}
+\item Present
+\item Next 2-5 years
+\item Beyond 5 years
+\end{itemize}
+
+\section{Cloud Services}
+%Please describe current or planned use of cloud services for data analysis, data storage, computing, or other purposes.  Please also include the projected growth in the use of these services.  Note that “cloud” in this case could include commercial clouds such as Amazon, Google, IBM, and Microsoft, or private clouds hosted by some other organization.  Our intent is to understand the ways in which science collaborations are adopting or planning to adopt cloud services so that ESnet can adapt to those changes.
+
+\section{Outstanding Issues}
+%Please use this space to address or discuss any challenges, barriers, or concerns that should be addressed that have not been asked for. In particular, if there are current network or data transfer performance problems that impact scientific productivity, please describe them.
+
+
+\end{document}
