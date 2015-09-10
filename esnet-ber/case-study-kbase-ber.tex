@@ -79,6 +79,15 @@ An important partner facility is the Joint Genome Institute (JGI) (see section X
 
 \section{Instruments and Facilities}
 %In terms of the present (within 0-2 years), next 2-5 years (beyond the current fiscal year’s budget cycle) and future (beyond 5 years), please describe the network, compute, instruments, and storage resources used for your work. If you are a facility, please describe the resources you make available to your users, or that users deploy at your facility.
+
+
+%KBase uses several systems distributed across the various sites. At Argonne, KBase uses 
+%the Magellan system. At LBNL/National Energy Research Scientific Computing Center (NERSC), KBase has an allocation on Carver. The Kandinsky system at ORNL will be used 
+%for data-intensive workloads. 
+%KBase plans to run workloads using Mira at Argonne and Cori Phase1 at NERSC. KBase partners with 
+%the Joint Genome Institute (JGI), which will result in large-scale ingestion of JGI
+%-produced sequence data to provide novel KBase analysis and modeling 
+%of these data sets.
 \begin{itemize}
 \item Present
 \item Next 2-5 years
@@ -87,6 +96,15 @@ An important partner facility is the Joint Genome Institute (JGI) (see section X
 
 \section{Process of Science}
 %Please describe the way in which the instruments and facilities (as discussed above) are used for knowledge discovery.  Examples might include workflows, data analysis, data reduction, integration of experimental data with simulation data, and so on. The goal is to capture the way in which the instruments and facilities are used (and will be used in the foreseeable future), so we can understand the potential impact of these processes on the network.  If you are a facility, please describe the common use models of your users, with a data-centric or network-centric focus. Please describe this process in terms of:
+The KBase project is building novel analysis and modeling techniques for biological data, 
+focusing on microbes, plants, and microbial communities, as well as a 
+service-oriented architecture that delivers analysis and modeling services to users. Users either upload 
+their own data sets or make use of data sets already loaded into KBase, and apply KBase 
+operations to these data sets.  Developers can also develop new analysis and modeling approaches and integrate them 
+into KBase. The goal here is to provide a common infrastructure for 
+large-scale biological data analysis and model creation and refinement. Improvements developed 
+through these processes will be rolled out for KBase users over time.
+
 \begin{itemize}
 \item Present
 \item Next 2-5 years
@@ -96,18 +114,42 @@ An important partner facility is the Joint Genome Institute (JGI) (see section X
 \section{Remote Science Activities}
 %Please include a description of any remote instruments or collaborations, and describe how this work does or may have an impact on your network traffic—any connections to major scientific instruments outside of your local instruments and facilities (i.e., supercomputers, particle accelerators, tokamaks, genome sequencers, satellite data…)?
 
-Since KBase is a web-based science platform, all of its users are remote.  Users primarily interact with the system through a "Narrative Interface".  This interface is based on the popular IPython/Jupyter platform with significant customizations done by KBase.  User can upload and download data into the system through this intefaces.
+Since KBase is a web-based science platform, all of its users are remote.  Users primarily interact with the system through a "Narrative Interface".  This interface is based on the popular IPython/Jupyter platform with significant customizations done by KBase.  User can upload  data into the system through this interface, conduct analysis, and download analyzed data.  Uploaded datasets can vary significantly in size and quantity.  Currently, users typically upload microbial data sets on the order 100 megabytes in size.  Eurkaryotic organisms (plants and fungi) can be significantly larger, 10-100 GBs.  Metagenomc datasets can be even larger exceeding 1 Terabytes in some cases.  The platform currently lacks strong support for these larger datasets, but the project hopes to improve support in the coming year for Eukarytoes and following year for Metagenomes.  In addition to genetic data, KBase will be adding support for expression related data such as RNA in the near future.  These datasets can also be large in size (10-100 GBs).
+
+In addition, to user uploaded data, KBase supports direct importing of data from JGI and NCBI (public data sets).  Support is currently limited to isolate microbes, but the project plans to expand support to other data sets.
+
+Finally, KBase has allocations or access to Director's allocations with the ASCR computing facilities.  To date  KBase hasn't made heavy use of these resources, but has efforts to run large-scale pre-computing jobs, assemblies, and other specialized jobs.  This could lead to more flow between KBase systems and the center.  However, the KBase hardware is collocated at ALCF at Argonne and NERSC at Berkeley, so their may be little impact on ESnet.
 
 \section{Software Infrastructure}
 %Describe the software used in daily activities of the scientific process.  Please include tools that are used to locally or remotely manage data resources, facilitate the transfer of data sets from or to remote collaborators, or process the raw results into final and intermediate formats.
+\begin{figure}[htbp]
+\begin{center}
+
+\caption{default}
+\label{kbase:roadmap} The KBase Roadmap.
+\end{center}
+\end{figure}
+
+KBase is a essentially a software development project.  Figure \ref{kbase:roadmap} shows the KBase roadmap.  This summarizes the major plans for the KBase platform over the next 4.5 years.  In addition, to the core KBase platform (e.g. data services, job execution services, Narrative and UI components) KBase contains various Science Services that include both JSON-RPC services as well as asynchronous analysis jobs that execute on backend resources (both dedicated and leveraged).
+
 \begin{itemize}
 \item Present
+KBase operates several data systems to store reference data and user data.  KBase uses a mix of off-the-shelf data stores like MongoDB as well as custom software like Shock and the KBase Workspace.  Data is primarily transferred via HTTP(S). KBase does operate Globus Online End-points, but this end-points are not exposed to KBase users at present.
+
+
 \item Next 2-5 years
+
+Over the next several years KBase plans to continue to enhance its data stores to meet expected scaling demands.  In addition, KBase will be adding support for bulk data uploads.  This will likely lead to an increase in data ingest.  Finally, the roadmap includes plans for new data types and analysis which will drive data ingest.
+
 \item Beyond 5 years
+
+KBase is an SFA on a 3-year cycle.  The plans beyond five years are currently not defined.
 \end{itemize}
 
 \section{Cloud Services}
 %Please describe current or planned use of cloud services for data analysis, data storage, computing, or other purposes.  Please also include the projected growth in the use of these services.  Note that “cloud” in this case could include commercial clouds such as Amazon, Google, IBM, and Microsoft, or private clouds hosted by some other organization.  Our intent is to understand the ways in which science collaborations are adopting or planning to adopt cloud services so that ESnet can adapt to those changes.
+
+KBase does not currently make use of any commercial cloud services with the exception of standard cloud-based software tools (such as Github, Docker, and Slack).  KBase currently uses the private Magellan Cloud at Argonne.  It is possible that in the future KBase may utilize public clouds for handling certain burst activities, but doesn't have any specific plans to do so at this time.
 
 \section{Outstanding Issues}
 %Please use this space to address or discuss any challenges, barriers, or concerns that should be addressed that have not been asked for. In particular, if there are current network or data transfer performance problems that impact scientific productivity, please describe them.
