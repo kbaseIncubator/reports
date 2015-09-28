@@ -54,7 +54,16 @@ KBase is connected to ESnet directly at the two major sites (Argonne National La
 
 At Berkeley, KBase is housed with NERSC.  This is currently at the Oakland Scientific Facility but will move in late 2015 to the new Computational Research and Theory (CRT) Facility which has just completed construction.  Currently a dedicated KBase router (Juniper QFX3500S) is connected via 10Gb to a NERSC owned Alcatel-based 100Gb router which is connected to ESnet via a 100Gb link.  The connection through the NERSC router is VLAN based (i.e. the NERSC router doesn't perform any Layer 3 routing).  KBase servers are connected to the Juniper via a Mellanox 40Gb Ethernet Switch.  Currently, the Juniper router has a minimal set of ACLs defined.  The Juniper QFX3500s has four 40Gb interfaces which are not currently being used, but could be used to increase the bandwidth in the future.
 
-At Argonne, KBase is co-located with the Magellan system and shares network connectivity.  It connects via a {\em TBD}.
+At Argonne, KBase is co-located with the Magellan cloud and shares network connectivity.  Figure \ref{kbase:anl} illustrates this connectivity.
+
+\begin{figure}[htbp]
+\begin{center}
+\includegraphics[width=5in]{anl-cloud.jpg}  
+\caption{Connectivity for KBase systems at Argonne National Lab.}
+\label{kbase:anl} 
+\end{center}
+\end{figure}
+
 
 \section{Collaborators}
 %Please list facilities, significant users/collaborators, and/or virtual organizations (VOs) that are critical to your work.  A rough estimate on the breadth and depth of the collaboration space (i.e., number of users, number of participating facilities, etc.) is also useful.  Please list geographical endpoints for collaborators.
@@ -121,10 +130,14 @@ through these processes will be rolled out for KBase users over time.
 
 \begin{itemize}
 \item Present
+At present KBase primarily supports the assembly, annotation and modeling of Microbial data.  It has minimal support for Eukaryotes and microbial communities.  KBase is currently working on enhancements that should improve support for Eukaryotes over the next year.  Improved support for microbial communities should follow after that.  KBase is also working on improvements that will lower the barrier for 3rd party developers to contribute methods and improvements.  This should help to further expand the capabilities of the system and the types of analysis that KBase users can perform in the system.
+
 \item Next 2-5 years
+In addition to genomic data, KBase plans to add additional data types in the future.  This could include mass spec data and imaging data.
+
 \item Beyond 5 years
 
-KBase is an SFA on a 3-year cycle.  The plans beyond five years are currently not defined.
+KBase is an BER Science Focus Area (SFA ) on a 3-year funding cycle.  The plans beyond five years are currently not defined.
 
 \end{itemize}
 
@@ -173,8 +186,9 @@ KBase currently uses the private Magellan Cloud at Argonne.  It is possible that
 \section{Outstanding Issues}
 %Please use this space to address or discuss any challenges, barriers, or concerns that should be addressed that have not been asked for. In particular, if there are current network or data transfer performance problems that impact scientific productivity, please describe them.
 
-Most of the current limitations in uploading large data sets are due to known constraints within the KBase software.  
-The KBase roadmap already includes plans to improve support for these data types.  
-As the limitations are lifted, KBase may encounter new challenges, but the network is not currently imposing any serious barriers on KBase.
+Most of the current limitations with KBase that relate to networking are due to known constrains in the KBase software.  This includes limits on the ability to upload large data sets, bulk uploads, etc.   The KBase roadmap includes plans for improvements in many of these areas.  
+As these limitations and constraints are lifted, KBase may encounter new challenges.  But the network is not currently imposing any serious barriers on KBase.
+
+One important aspect for KBase which is worth noting is around reliability and accessibility.  Through improved replication KBase hopes to move towards a model where the platform is nearly always available.  This could eventually lead to new requirements from the networking layer to allow for seamless load balancing and fail-over between sites.  This may include eventually leveraging software defined networking capabilities between the sites.
 
 \end{document}
